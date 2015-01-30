@@ -1,0 +1,30 @@
+[user]
+	name = Seaborn Lee
+	email = seabornlee.cn@gmail.com
+[core]
+	autocrlf = input
+	editor = vim
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	srb = svn rebase
+	br = branch
+	sdc = svn dcommit
+	unstash = stash pop
+	lg = log --oneline --decorate --all --graph
+[color]
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+[svn]
+	rmdir = true
+[push]
+	default = simple
+[github]
+	user = hkliya@gmail.com
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f

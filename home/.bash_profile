@@ -11,11 +11,6 @@ export RUBYMOTION_ANDROID_NDK=/usr/local/Cellar/android-ndk/r10c
 #export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home
 
-git config --global color.status auto
-git config --global color.branch auto
-git config --global color.interactive auto
-git config --global color.diff auto
-
 # MacPorts Installer addition on 2013-10-10_at_23:01:34: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
