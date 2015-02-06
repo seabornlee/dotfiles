@@ -24,7 +24,6 @@
       Bundle 'ybian/smartim'
       Bundle 'ervandew/supertab'
       Bundle 'scrooloose/syntastic'
-      Bundle 'tomtom/tlib_vim'
       Bundle 'MarcWeber/vim-addon-mw-utils'
       Bundle 'cakebaker/scss-syntax.vim'
       Bundle 'jistr/vim-nerdtree-tabs'
@@ -42,7 +41,6 @@
       Bundle 'tpope/vim-markdown'
       Bundle 'junegunn/goyo.vim'
       Bundle 'ngmy/vim-rubocop'
-      Bundle 'msanders/snipmate.vim'
       Bundle 'rking/ag.vim'
       Bundle 'tommcdo/vim-exchange'
       Bundle 'vim-ruby/vim-ruby'
@@ -60,12 +58,16 @@
       Bundle 'tfnico/vim-gradle'
       Bundle 'nathanaelkane/vim-indent-guides'
       Bundle 'kana/vim-textobj-user'
-      " Bundle 'nelstrom/vim-textobj-rubyblock'
+      Bundle 'nelstrom/vim-textobj-rubyblock'
       Bundle 'austintaylor/vim-indentobject'
       Bundle 'lucapette/vim-textobj-underscore'
       Bundle 'thoughtbot/vim-rspec'
       Bundle 'tpope/vim-dispatch'
       Bundle 'wting/rust.vim'
+      Bundle 'mxw/vim-jsx'
+      Bundle "justinj/vim-react-snippets"
+      Bundle "tomtom/tlib_vim"
+      Bundle 'msanders/snipmate.vim'
 
       call vundle#end()            " required
       filetype plugin indent on    " required
