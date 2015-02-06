@@ -4,6 +4,7 @@
 [core]
 	autocrlf = input
 	editor = vim
+	excludesfile = /Users/twer/.gitignore_global
 [alias]
 	st = status
 	ci = commit
@@ -28,3 +29,9 @@
 	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
