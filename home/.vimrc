@@ -68,8 +68,6 @@
       Bundle "justinj/vim-react-snippets"
       Bundle "tomtom/tlib_vim"
       Bundle 'msanders/snipmate.vim'
-      Bundle 'mhinz/vim-startify'
-
 
       call vundle#end()            " required
       filetype plugin indent on    " required
@@ -151,7 +149,6 @@
       " set foldenable " folding text into clusters (+) according to  {{{ }}} or comments for example.
       " set foldmethod=manual " default options, we create fold manually.
       set fdm=indent
-      set foldlevel=99
       set showmatch " when use insert bracket, briefly jump to matching one (i like it, but i might be annoying)
 
       set infercase " case inferred by default
@@ -431,57 +428,6 @@
 
       nmap <Leader>z :Start<CR>
       nmap <Leader>c :Start rails console<CR>
-
-      " plugins: vim-startify {{{2
-      " let g:startify_list_order = [
-      "       \ 'files',
-      "       \ 'dir',
-      "       \ 'sessions'
-      "       \ ]
-      let s:mac = has('mac')
-      let g:startify_list_order = [
-            \ ['   MRU:'],
-            \ 'files' ,
-            \ ['   MRU (dir):'],
-            \ 'dir',
-            \ ['   Sessions:'],
-            \ 'sessions',
-            \ ['   Bookmarks:'],
-            \ 'bookmarks',
-            \ ]
-      " autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
-      " autocmd User Startified
-      "       \ execute 'nunmap <buffer> i' |
-      "       \ setlocal modifiable |
-      "       \ autocmd InsertEnter <buffer> enew
-
-      let g:startify_relative_path          = 0
-      let g:startify_files_number           = 8
-      let g:startify_session_persistence    = 1
-      let g:startify_session_autoload       = 1
-      let g:startify_session_delete_buffers = 1
-      let g:startify_change_to_dir          = 1
-      let g:startify_enable_special         = 0
-      let g:startify_enable_unsafe          = 1
-      " let g:startify_custom_indices         = ['f', 'g', 'h']
-
-      let g:startify_skiplist = [
-            \ 'COMMIT_EDITMSG',
-            \ '\.fugitiveblame',
-            \ $VIMRUNTIME .'/doc',
-            \ 'bundle/.*/doc',
-            \ '\.vimgolf',
-            \ ]
-
-      function! s:center_header(lines) abort
-        let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
-        let centered_lines = map(copy(a:lines), 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-        return centered_lines
-      endfunction
-
-      let g:startify_custom_header = s:center_header(split(system('tips | '. (s:mac ? 'cowthink' : 'cowsay -f apt')), '\n'))
-      let g:startify_custom_footer = ['', "   Vim is charityware. Please read ':help uganda'.", '']
-
     " GUI setting
     " {{{
     " Under the Mac(MacVim)
