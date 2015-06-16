@@ -479,7 +479,7 @@
         return centered_lines
       endfunction
 
-      let g:startify_custom_header = s:center_header(split(system('tips | '. 'fortune | cowsay'), '\n'))
+      let g:startify_custom_header = s:center_header(split(system('tips | '. (s:mac ? 'cowthink' : 'cowsay -f apt')), '\n'))
       let g:startify_custom_footer = ['', "   Vim is charityware. Please read ':help uganda'.", '']
 
     " GUI setting
