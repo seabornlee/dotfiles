@@ -106,6 +106,7 @@
       set tags=.tags;/ " save tags generated for files in current working directory
       set ttyfast " i got a fast terminal!
       set ttimeoutlen=50  " Make Esc work faster
+      set timeoutlen=200 " Make Leader work faster
 
     " }}}
 
@@ -199,7 +200,7 @@
     " Binding
     " {{{
     " Map leader
-      let mapleader = ';' " used for lot of stuff, feel free to change it.
+      let mapleader = "\<Space>" " used for lot of stuff, feel free to change it.
 
       " Open all folds
       nnoremap <space> :%foldopen<CR>
@@ -228,6 +229,8 @@
       map <Leader>sv :RSview 
       map <Leader>su :RSunittest 
       " map <Leader>sf :RSfunctionaltest 
+
+      nmap <Leader><Leader> V
 
       map <leader>cmd :!
 
@@ -272,6 +275,10 @@
       inoremap ˚ <Esc>:m .-2<CR>==gi
       vnoremap ∆ :m '>+1<CR>gv=gv
       vnoremap ˚ :m '<-2<CR>gv=gv
+
+      " expand region
+      vmap v <Plug>(expand_region_expand)
+      vmap <C-v> <Plug>(expand_region_shrink)
    " }}}
 
     " Filetypes
