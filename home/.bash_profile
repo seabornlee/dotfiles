@@ -20,7 +20,7 @@ export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
 export PATH=$HOME/local/node/bin:/usr/local/bin:$PATH
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_HOST=tcp://192.168.59.104:2376
 export DOCKER_CERT_PATH=/Users/twer/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
