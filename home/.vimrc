@@ -53,6 +53,7 @@
       Bundle "justinj/vim-react-snippets"
       Bundle "tomtom/tlib_vim"
       Bundle 'msanders/snipmate.vim'
+      Bundle 'kien/ctrlp.vim'
 
       call vundle#end()            " required
       filetype plugin indent on    " required
