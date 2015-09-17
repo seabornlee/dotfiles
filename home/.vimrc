@@ -99,7 +99,8 @@
     " }}}
 
     " UI {{{
-      colorscheme Monokai " Color scheme
+      set background=dark
+      colorscheme Solarized " Color scheme
 
       set nowrap
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
