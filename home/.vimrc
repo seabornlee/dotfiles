@@ -11,8 +11,6 @@
 
       " let Vundle manage Vundle, required
       Bundle 'VundleVim/Vundle.vim'
-      Bundle 'kien/ctrlp.vim'
-      Bundle 'tacahiroy/ctrlp-funky'
       Bundle 'mattn/emmet-vim'
       Bundle 'scrooloose/nerdcommenter'
       Bundle 'scrooloose/nerdtree'
@@ -198,7 +196,6 @@
       nnoremap <leader>w :w<CR>
       nnoremap <leader>x :x<CR>
       nnoremap <Leader>qq :q!<CR>
-      nnoremap <leader>. :CtrlPTag<cr>
 
       " Quickly edit/reload the vimrc file
       nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -345,23 +342,6 @@
       set laststatus=2
       " }}}
 
-      " CtrlP
-      " {{{
-      set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-      set showcmd
-      let g:ctrlp_custom_ignore = {
-            \ 'dir': '\v[\/]\.(git|hg|svn)|node_modules|www|plugins|coverage|platforms|bower_components$',
-            \ 'file': '\v\.(exe|so|dll|tags|logfile)$'
-            \ }
-
-      map <leader>b :CtrlPMRU<cr>
-      " }}}
-      "
-      " Ctrlp-funky
-      " {{{
-      let g:ctrlp_extensions = ['funky']
-      " }}}
-      "
       " Gist
       " {{{
       let g:gist_clip_command = 'xclip -selection clipboard'
