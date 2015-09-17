@@ -10,19 +10,13 @@
       " alternatively, pass a path where Vundle should install plugins
 
       " let Vundle manage Vundle, required
-      Bundle 'gmarik/Vundle.vim'
-      Bundle 'godlygeek/tabular'
+      Bundle 'VundleVim/Vundle.vim'
       Bundle 'kien/ctrlp.vim'
       Bundle 'tacahiroy/ctrlp-funky'
-      Bundle 'digitaltoad/vim-jade'
-      Bundle 'mattn/gist-vim'
-      Bundle 'mattn/webapi-vim'
       Bundle 'mattn/emmet-vim'
-      Bundle 'sjl/gundo.vim'
       Bundle 'scrooloose/nerdcommenter'
       Bundle 'scrooloose/nerdtree'
       Bundle 'ybian/smartim'
-      Bundle 'ervandew/supertab'
       Bundle 'scrooloose/syntastic'
       Bundle 'MarcWeber/vim-addon-mw-utils'
       Bundle 'cakebaker/scss-syntax.vim'
@@ -32,17 +26,11 @@
       Bundle 'tpope/vim-surround'
       Bundle 'tpope/vim-fugitive'
       Bundle 'tpope/vim-repeat'
-      Bundle 'amix/open_file_under_cursor.vim'
       Bundle 'itchyny/lightline.vim'
       Bundle 'jiangmiao/auto-pairs'
-      Bundle 'rizzatti/dash.vim'
       Bundle 'elzr/vim-json'
-      Bundle 'supasorn/vim-easymotion'
-      Bundle 'tpope/vim-markdown'
       Bundle 'junegunn/goyo.vim'
-      Bundle 'ngmy/vim-rubocop'
       Bundle 'rking/ag.vim'
-      Bundle 'tommcdo/vim-exchange'
       Bundle 'vim-ruby/vim-ruby'
       Bundle 'tpope/vim-bundler'
       Bundle 'tpope/vim-rails'
@@ -55,7 +43,6 @@
       Bundle 'ecomba/vim-ruby-refactoring'
       Bundle 'vim-scripts/matchit.zip'
       Bundle 'terryma/vim-expand-region'
-      Bundle 'tfnico/vim-gradle'
       Bundle 'nathanaelkane/vim-indent-guides'
       Bundle 'kana/vim-textobj-user'
       Bundle 'nelstrom/vim-textobj-rubyblock'
@@ -72,6 +59,7 @@
       call vundle#end()            " required
       filetype plugin indent on    " required
   " }}}
+  set shell=/bin/bash
   set nocompatible
   set hidden
   syntax on
@@ -210,9 +198,6 @@
       nnoremap <leader>x :x<CR>
       nnoremap <Leader>qq :q!<CR>
       nnoremap <leader>. :CtrlPTag<cr>
-
-      " for ruby koans
-      map <leader>r :w <bar> :!ruby %<CR>
 
       " Quickly edit/reload the vimrc file
       nmap <silent> <leader>ev :e $MYVIMRC<CR>
