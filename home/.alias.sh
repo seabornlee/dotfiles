@@ -1,3 +1,4 @@
+alias vim='/opt/homebrew-cask/Caskroom/macvim/7.4-77/MacVim-snapshot-77/MacVim.app/Contents/MacOS/vim'
 alias e='vim'
 alias ealias='vim ~/.alias.sh'
 alias tmux="TERM=screen-256color-bce tmux"
