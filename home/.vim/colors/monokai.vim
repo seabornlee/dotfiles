@@ -1,0 +1,1 @@
+/Users/mavis/.homesick/repos/dotfiles/home/.vim/colors/monokai.vim
