@@ -330,6 +330,9 @@
       let g:html5_microdata_attributes_complete = 0
       let g:html5_aria_attributes_complete = 0
       " }}}
+      "
+
+      imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
       " vim-javascript
       " {{{
