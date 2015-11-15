@@ -54,6 +54,8 @@
       Bundle "tomtom/tlib_vim"
       Bundle 'msanders/snipmate.vim'
       Bundle 'kien/ctrlp.vim'
+      Bundle 'jdkanani/vim-material-theme'
+      Bundle 'ngmy/vim-rubocop'
 
       call vundle#end()            " required
       filetype plugin indent on    " required
@@ -99,7 +101,7 @@
 
     " UI {{{
       set background=dark
-      colorscheme Solarized " Color scheme
+      colorscheme colorsbox-material " Color scheme
 
       set nowrap
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
@@ -203,10 +205,10 @@
       nmap <silent> <leader>so :so $MYVIMRC<CR>
 
       " Leader shortcuts for Rails commands
-      map <Leader>m :Rmodel 
-      map <Leader>c :Rcontroller 
-      map <Leader>v :Rview 
-      map <Leader>u :Runittest 
+      map <Leader>m :Emodel 
+      map <Leader>c :Econtroller 
+      map <Leader>v :Eview 
+      map <Leader>u :Eunittest 
       " map <Leader>f :Rfunctionaltest 
       map <Leader>sm :RSmodel 
       map <Leader>sc :RScontroller 
@@ -244,6 +246,9 @@
       " upper/lower first char of word
       nmap <leader>wu mQgewvU`Q
       nmap <leader>wl mQgewvu`Q
+
+      let g:vimrubocop_keymap = 0
+      nmap <Leader>r :RuboCop<CR>
 
       " Swap two words
       nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
@@ -404,7 +409,6 @@
       nmap <Leader>tb :TagbarToggle<CR>
 
       nmap <Leader>z :Start<CR>
-      nmap <Leader>c :Start rails console<CR>
     " GUI setting
     " {{{
     " Under the Mac(MacVim)

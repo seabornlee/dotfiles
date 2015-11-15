@@ -1,4 +1,4 @@
-alias vim='/opt/homebrew-cask/Caskroom/macvim/7.4-77/MacVim-snapshot-77/MacVim.app/Contents/MacOS/vim'
+#alias vim='/opt/homebrew-cask/Caskroom/macvim/7.4-77/MacVim-snapshot-77/MacVim.app/Contents/MacOS/vim'
 alias e='vim'
 alias ealias='vim ~/.alias.sh'
 alias tmux="TERM=screen-256color-bce tmux"
@@ -39,7 +39,7 @@ alias rs='be rails s'
 alias rc='be rails c'
 alias src='be mina "rails[console]" -f config/deploy-staging.rb'
 
-alias ut='be rspec spec'
+alias ut='be rake spec:unit'
 
 # Homebrew
 alias bs='brew search'
