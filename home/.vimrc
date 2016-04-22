@@ -56,6 +56,11 @@
       Bundle 'kien/ctrlp.vim'
       Bundle 'jdkanani/vim-material-theme'
       Bundle 'ngmy/vim-rubocop'
+      Bundle 'kaichen/vim-snipmate-ruby-snippets'
+      Bundle 'AndrewRadev/splitjoin.vim'
+      Bundle 'nikvdp/ejs-syntax'
+      Bundle 'adimit/prolog.vim'
+      Bundle 'GutenYe/gem.vim'
 
       call vundle#end()            " required
       filetype plugin indent on    " required
@@ -191,6 +196,7 @@
     " {{{
     " Map leader
       let mapleader = "\<Space>" " used for lot of stuff, feel free to change it.
+      inoremap <leader><leader> <ESC>
 
       " Open all folds
       nnoremap <space> :%foldopen<CR>
@@ -215,8 +221,6 @@
       map <Leader>sv :RSview 
       map <Leader>su :RSunittest 
       " map <Leader>sf :RSfunctionaltest 
-
-      nmap <Leader><Leader> V
 
       map <leader>cmd :!
 
@@ -337,7 +341,7 @@
       " }}}
       "
 
-      imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+      imap <expr> <leader><tab> emmet#expandAbbrIntelligent("\<tab>")
 
       " vim-javascript
       " {{{
@@ -388,16 +392,20 @@
       let g:NERDTreeDirArrows=1
       let g:NERTreeHighlightCursorLine=1
       "}}}
-      "
+
+      " CtrlP {{{
+      nmap <leader>bs :CtrlPMRU<cr>
+      nmap <leader>bb :CtrlPBuffer<cr>
+      "}}}
 
       " ag {{{
-      let g:agprg="ag --column"
+      let g:ag_prg="ag --column"
       " start ack search, (using ACK tool, like grep but for source code)
       nnoremap <leader>a :Ag 
       " }}}
 
       " RSpec.vim mappings
-      let g:rspec_command = "Dispatch rspec {spec}"
+      let g:rspec_command = "Dispatch rspec -f d {spec}"
       let g:rspec_runner = "os_x_iterm"
 
       map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -406,7 +414,7 @@
       " map <Leader>a :call RunAllSpecs()<CR>
       map T :A<CR>
 
-      nmap <Leader>tb :TagbarToggle<CR>
+      nmap <Leader>ta :TagbarToggle<CR>
 
       nmap <Leader>z :Start<CR>
     " GUI setting
