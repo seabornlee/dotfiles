@@ -61,6 +61,10 @@
       Bundle 'nikvdp/ejs-syntax'
       Bundle 'adimit/prolog.vim'
       Bundle 'GutenYe/gem.vim'
+      Bundle 'godlygeek/tabular'
+      Bundle 'plasticboy/vim-markdown'
+      Bundle 'lfilho/cosco.vim'
+      Bundle 'dracula/vim'
 
       call vundle#end()            " required
       filetype plugin indent on    " required
@@ -106,7 +110,7 @@
 
     " UI {{{
       set background=dark
-      colorscheme colorsbox-material " Color scheme
+      colorscheme dracula "colorsbox-material Color scheme
 
       set nowrap
       set tabstop=4 " when there's tab, it should be indented by 4 spaces
@@ -329,6 +333,8 @@
         autocmd FileType gitcommit setlocal spell
       augroup END
       " }}}
+
+      inoremap <leader>; <C-o>A;
 
 
     " }}}

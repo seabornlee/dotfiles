@@ -6,6 +6,7 @@
 	editor = vim
 	excludesfile = /Users/twer/.gitignore_global
 	quotepath = false
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	st = status
 	ci = commit

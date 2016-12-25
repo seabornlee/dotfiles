@@ -38,6 +38,11 @@ alias bis='bower install -S'
 
 alias yoad='yo angular:directive '
 
+#Nodejs
+alias nis='npm i -S'
+alias nid='npm i -D'
+alias ns='npm start'
+
 # Rails development
 alias rn='rails new'
 alias b='bundle'
@@ -45,7 +50,6 @@ alias be='b exec'
 alias rs='be rails s'
 alias rc='be rails c'
 alias src='be mina "rails[console]" -f config/deploy-staging.rb'
-alias gi='gem install'
 
 alias rg='be rails g'
 alias rgm='rg model'
