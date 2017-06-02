@@ -54,7 +54,6 @@
       Bundle "tomtom/tlib_vim"
       Bundle 'msanders/snipmate.vim'
       Bundle 'kien/ctrlp.vim'
-      Bundle 'jdkanani/vim-material-theme'
       Bundle 'ngmy/vim-rubocop'
       Bundle 'kaichen/vim-snipmate-ruby-snippets'
       Bundle 'AndrewRadev/splitjoin.vim'
@@ -168,7 +167,7 @@
     " {{{
 
       " Cursor highlight
-      :hi CursorLine   cterm=NONE ctermbg=8
+      " :hi CursorLine   cterm=NONE ctermbg=8
       :hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
       set cursorline
 
@@ -237,6 +236,9 @@
       map <C-j> <C-w>j
       map <C-k> <C-w>k
       map <C-l> <C-w>l
+
+      " jump to end of line in insert mode
+      inoremap <C-e> <C-o>$
 
       " open horizontal  split and switch to it
       nnoremap <leader>h :split<CR>
