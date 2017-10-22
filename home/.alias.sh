@@ -73,4 +73,6 @@ alias rn='react-native'
 
 alias rock='mux start rails'
 
+# Shell
+alias rf='rm -rf'
 alias kill='kill -9'

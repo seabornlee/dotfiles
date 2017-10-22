@@ -64,6 +64,8 @@
       Bundle 'plasticboy/vim-markdown'
       Bundle 'lfilho/cosco.vim'
       Bundle 'dracula/vim'
+      Bundle 'leafgarland/typescript-vim'
+      Bundle 'posva/vim-vue'
 
       call vundle#end()            " required
       filetype plugin indent on    " required
