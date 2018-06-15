@@ -50,7 +50,6 @@
       Bundle 'tpope/vim-dispatch'
       Bundle 'wting/rust.vim'
       Bundle 'mxw/vim-jsx'
-      Bundle "justinj/vim-react-snippets"
       Bundle "tomtom/tlib_vim"
       Bundle 'msanders/snipmate.vim'
       Bundle 'kien/ctrlp.vim'
@@ -66,6 +65,9 @@
       Bundle 'dracula/vim'
       Bundle 'leafgarland/typescript-vim'
       Bundle 'posva/vim-vue'
+      Bundle 'epilande/vim-react-snippets'
+      Bundle 'tomlion/vim-solidity'
+      Bundle 'Galooshi/vim-import-js'
 
       call vundle#end()            " required
       filetype plugin indent on    " required
@@ -114,8 +116,6 @@
       colorscheme dracula "colorsbox-material Color scheme
 
       set nowrap
-      set tabstop=4 " when there's tab, it should be indented by 4 spaces
-      set shiftwidth=2 " Number of spaces to use for each step of (auto)indent
       set shiftround " round the indent to shiftwidth (when at 3 spaces, and I hit > go to 4, not 5)
       set autoindent
       set infercase " case inferred by default, used for autocompletition in insert mode and so on..
@@ -156,7 +156,7 @@
       set shiftround " round the indent to shiftwidth (when at 3 spaces, and I hit > go to 4, not 5)
       set shiftwidth=2 " auto-indent amount when using >> <<
       set softtabstop=2 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
-      set tabstop=4 " real tabs should be 4, and they will show with set list on
+      set tabstop=2 " real tabs should be 4, and they will show with set list on
 
       set completeopt=longest,menu,preview
       " }}}
@@ -265,6 +265,8 @@
 
       let g:vimrubocop_keymap = 0
       nmap <Leader>r :RuboCop<CR>
+
+      nmap <Leader>j :ImportJSWord<CR>
 
       " Swap two words
       nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'

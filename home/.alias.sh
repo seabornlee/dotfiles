@@ -21,6 +21,7 @@ alias gco='git checkout'
 alias gcp='git cherry-pick'
 alias gl='git pull --rebase'
 alias gp='git push'
+alias gpa='gp --all'
 alias gd='git diff'
 alias gdca='git diff --cached'
 alias gst='git status'
@@ -76,3 +77,4 @@ alias rock='mux start rails'
 # Shell
 alias rf='rm -rf'
 alias kill='kill -9'
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
