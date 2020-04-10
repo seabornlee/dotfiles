@@ -17,7 +17,6 @@
       Bundle 'ybian/smartim'
       Bundle 'scrooloose/syntastic'
       Bundle 'MarcWeber/vim-addon-mw-utils'
-      Bundle 'cakebaker/scss-syntax.vim'
       Bundle 'jistr/vim-nerdtree-tabs'
       Bundle 'tpope/vim-commentary'
       Bundle 'tpope/vim-endwise'
@@ -29,50 +28,48 @@
       Bundle 'elzr/vim-json'
       Bundle 'junegunn/goyo.vim'
       Bundle 'rking/ag.vim'
-      Bundle 'vim-ruby/vim-ruby'
-      Bundle 'tpope/vim-bundler'
-      Bundle 'tpope/vim-rails'
-      Bundle 'tpope/vim-rake'
       Bundle 'pangloss/vim-javascript'
-      Bundle 'kchmck/vim-coffee-script'
       Bundle 'tpope/vim-haml'
       Bundle 'tpope/vim-cucumber'
       Bundle 'majutsushi/tagbar'
-      Bundle 'ecomba/vim-ruby-refactoring'
       Bundle 'vim-scripts/matchit.zip'
       Bundle 'terryma/vim-expand-region'
       Bundle 'nathanaelkane/vim-indent-guides'
       Bundle 'kana/vim-textobj-user'
-      Bundle 'nelstrom/vim-textobj-rubyblock'
       Bundle 'austintaylor/vim-indentobject'
       Bundle 'lucapette/vim-textobj-underscore'
-      Bundle 'thoughtbot/vim-rspec'
       Bundle 'tpope/vim-dispatch'
       Bundle 'wting/rust.vim'
       Bundle 'mxw/vim-jsx'
       Bundle "tomtom/tlib_vim"
-      Bundle 'msanders/snipmate.vim'
+      Bundle "SirVer/ultisnips"
+      Bundle 'honza/vim-snippets'
       Bundle 'kien/ctrlp.vim'
-      Bundle 'ngmy/vim-rubocop'
-      Bundle 'kaichen/vim-snipmate-ruby-snippets'
       Bundle 'AndrewRadev/splitjoin.vim'
       Bundle 'nikvdp/ejs-syntax'
-      Bundle 'adimit/prolog.vim'
-      Bundle 'GutenYe/gem.vim'
       Bundle 'godlygeek/tabular'
       Bundle 'plasticboy/vim-markdown'
       Bundle 'lfilho/cosco.vim'
       Bundle 'dracula/vim'
       Bundle 'leafgarland/typescript-vim'
+      Bundle 'ianks/vim-tsx'
       Bundle 'posva/vim-vue'
       Bundle 'epilande/vim-react-snippets'
-      Bundle 'tomlion/vim-solidity'
       Bundle 'Galooshi/vim-import-js'
+      Bundle 'chemzqm/wxapp.vim'
+      Bundle 'prettier/vim-prettier'
+      Bundle 'janko/vim-test'
+      Bundle 'jhkersul/vim-jest-snippets'
+      Bundle 'mg979/vim-visual-multi'
+      Bundle 'Shougo/deoplete.nvim'
+      Bundle 'roxma/nvim-yarp'
+      Bundle 'roxma/vim-hug-neovim-rpc'
+      "plugin
 
       call vundle#end()            " required
       filetype plugin indent on    " required
   " }}}
-  set shell=/bin/bash
+  set shell=/bin/zsh
   set nocompatible
   set hidden
   syntax on
@@ -163,7 +160,7 @@
 
       " React.js
       let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
-      let g:syntastic_javascript_checkers = ['eslint']
+      " let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 
     " Advanced macros
     " {{{
@@ -219,20 +216,6 @@
       nmap <silent> <leader>ev :e $MYVIMRC<CR>
       nmap <silent> <leader>so :so $MYVIMRC<CR>
 
-      " Leader shortcuts for Rails commands
-      map <Leader>m :Emodel 
-      map <Leader>c :Econtroller 
-      map <Leader>v :Eview 
-      map <Leader>u :Eunittest 
-      " map <Leader>f :Rfunctionaltest 
-      map <Leader>sm :RSmodel 
-      map <Leader>sc :RScontroller 
-      map <Leader>sv :RSview 
-      map <Leader>su :RSunittest 
-      " map <Leader>sf :RSfunctionaltest 
-
-      map <leader>cmd :!
-
       " convenient window switching
       map <C-h> <C-w>h
       map <C-j> <C-w>j
@@ -263,11 +246,6 @@
       nmap <leader>wu mQgewvU`Q
       nmap <leader>wl mQgewvu`Q
 
-      let g:vimrubocop_keymap = 0
-      nmap <Leader>r :RuboCop<CR>
-
-      nmap <Leader>j :ImportJSWord<CR>
-
       " Swap two words
       nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
@@ -275,17 +253,9 @@
       map <Down> gj
       map <Up> gk
 
-      " Move line up and down
-      nnoremap ∆ :m .+1<CR>==
-      nnoremap ˚ :m .-2<CR>==
-      inoremap ∆ <Esc>:m .+1<CR>==gi
-      inoremap ˚ <Esc>:m .-2<CR>==gi
-      vnoremap ∆ :m '>+1<CR>gv=gv
-      vnoremap ˚ :m '<-2<CR>gv=gv
-
       " expand region
       vmap v <Plug>(expand_region_expand)
-      vmap <C-v> <Plug>(expand_region_shrink)
+      "vmap <C-v> <Plug>(expand_region_shrink)
    " }}}
 
     " Filetypes
@@ -321,11 +291,6 @@
         autocmd FileType ruby,eruby             let g:rubycomplete_buffer_loading = 1
       augroup END
       " }}}
-
-      " Coffescript
-      " {{{
-      au BufNewFile,BufReadPost *.coffee setl sw=2 expandtab
-      "}}}
 
       augroup C
         au!
@@ -393,6 +358,13 @@
 
       " }}}
 
+      " syntastic {{{
+      let test#strategy = "vimterminal"
+      nnoremap <leader>t :TestNearest<CR>
+      nnoremap <leader>f :TestFile<CR>
+      nnoremap <leader>l :TestLast<CR>
+      " }}}
+
       " Rubycomplete {{{
       let g:rubycomplete_rails=1
       let g:rubycomplete_classes_in_global=1
@@ -412,7 +384,8 @@
       " CtrlP {{{
       nmap <leader>bs :CtrlPMRU<cr>
       nmap <leader>bb :CtrlPBuffer<cr>
-      "}}}
+      let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|dist)$'
+      "}}
 
       " ag {{{
       let g:ag_prg="ag --column"
@@ -420,24 +393,33 @@
       nnoremap <leader>a :Ag 
       " }}}
 
-      " RSpec.vim mappings
-      let g:rspec_command = "Dispatch rspec -f d {spec}"
-      let g:rspec_runner = "os_x_iterm"
-
-      map <Leader>t :call RunCurrentSpecFile()<CR>
-      map <Leader>s :call RunNearestSpec()<CR>
-      map <Leader>l :call RunLastSpec()<CR>
-      " map <Leader>a :call RunAllSpecs()<CR>
-      map T :A<CR>
-
       nmap <Leader>ta :TagbarToggle<CR>
 
-      nmap <Leader>z :Start<CR>
+      let g:UltiSnipsExpandTrigger="<tab>"
+      let g:UltiSnipsJumpForwardTrigger="<tab>"
+      let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+      " let g:deoplete#enable_at_startup = 1
+      " call deoplete#custom#option('sources', {
+      "       \ '_': ['ale']
+      "       \})
+      " let g:ale_completion_enabled = 1
+
+      " let g:ale_fixers = ['eslint']
+
+      " let g:ale_sign_error = '❎'
+      " let g:ale_sign_warning = '⚠️'
+      " let g:ale_fix_on_save = 1
+
+      au BufNewFile,BufRead Jenkinsfile setf groovy
+
     " GUI setting
     " {{{
     " Under the Mac(MacVim)
     if has("gui_macvim")
-      set guifont=Menlo\ Regular:h18
+      set macligatures
+      set guifont=Fira\ Code:h28
+      " set guifont=Menlo\ Regular:h18
       "remove toolbar
       set guioptions-=T
       set showtabline=1
@@ -445,7 +427,7 @@
       set guioptions-=L
       set guioptions-=r
 
-      set fullscreen fullscreen
+      " set fullscreen fullscreen
     endif
     " }}}
 " }}}

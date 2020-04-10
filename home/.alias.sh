@@ -1,5 +1,5 @@
 #alias vim='/opt/homebrew-cask/Caskroom/macvim/7.4-77/MacVim-snapshot-77/MacVim.app/Contents/MacOS/vim'
-alias e='vim'
+alias e='mvim'
 alias ealias='vim ~/.alias.sh'
 alias vimrc='e ~/.vimrc'
 
@@ -21,7 +21,7 @@ alias gco='git checkout'
 alias gcp='git cherry-pick'
 alias gl='git pull --rebase'
 alias gp='git push'
-alias gpa='gp --all'
+alias gpa='git remote | xargs -L1 git push --all'
 alias gd='git diff'
 alias gdca='git diff --cached'
 alias gst='git status'
@@ -29,6 +29,7 @@ alias gm='git merge'
 alias gcom='gco master'
 alias gcod='gco development'
 alias up='git stash;gl;git stash pop'
+alias gri='git rebase -i'
 
 alias bi='bundle install'
 
@@ -38,6 +39,9 @@ alias nig='npm install -g'
 alias bis='bower install -S'
 
 alias yoad='yo angular:directive '
+
+#Gradle
+alias gct='./gradlew clean test'
 
 #Nodejs
 alias nis='npm i -S'
@@ -62,7 +66,7 @@ alias ut='be rake spec:unit'
 
 # Homebrew
 alias bs='brew search'
-alias bi='brew install'
+alias bi='HOMEBREW_NO_AUTO_UPDATE=1 brew install'
 alias cs='brew cask search'
 alias ci='brew cask install'
 
@@ -78,3 +82,13 @@ alias rock='mux start rails'
 alias rf='rm -rf'
 alias kill='kill -9'
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+# GitHub
+alias hbb='hub browse'
+
+# Yarn
+alias yad='yarn add -D'
+alias ysb='yarn storybook'
+
+alias dps='docker ps'
+alias dp='docker pull'
