@@ -2,6 +2,7 @@
 alias e='mvim'
 alias ealias='vim ~/.alias.sh'
 alias vimrc='e ~/.vimrc'
+alias magit='e -c Magit'
 
 alias gcl='git clone'
 alias ga='git add'
@@ -66,7 +67,8 @@ alias ut='be rake spec:unit'
 
 # Homebrew
 alias bs='brew search'
-alias bi='HOMEBREW_NO_AUTO_UPDATE=1 brew install'
+alias bi='HOMEBREW_NO_AUTO_UPDATE=1 ALL_PROXY=127.0.0.1:8001 brew install'
+alias bu='ALL_PROXY=127.0.0.1:8001 brew update'
 alias cs='brew cask search'
 alias ci='brew cask install'
 
@@ -83,6 +85,8 @@ alias rf='rm -rf'
 alias kill='kill -9'
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
+alias ls='exa'
+
 # GitHub
 alias hbb='hub browse'
 
@@ -92,3 +96,6 @@ alias ysb='yarn storybook'
 
 alias dps='docker ps'
 alias dp='docker pull'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dcud='dcu -d'

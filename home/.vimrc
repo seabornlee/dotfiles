@@ -1,4 +1,4 @@
-" Init
+
 " {{{
   "Init Plugins
   " {{{
@@ -6,60 +6,66 @@
 
       call plug#begin()
 
-      Plug 'mattn/emmet-vim'
-      Plug 'scrooloose/nerdcommenter'
+      "Plug 'dense-analysis/ale'
       Plug 'scrooloose/nerdtree'
-      Plug 'ybian/smartim'
-      Plug 'scrooloose/syntastic'
-      Plug 'MarcWeber/vim-addon-mw-utils'
+      Plug 'scrooloose/nerdcommenter'
       Plug 'jistr/vim-nerdtree-tabs'
-      Plug 'tpope/vim-commentary'
-      Plug 'tpope/vim-endwise'
+      Plug 'Xuyuanp/nerdtree-git-plugin'
+      Plug 'mattn/emmet-vim'
+      " Plug 'ybian/smartim'
+      Plug 'scrooloose/syntastic'
+      " Plug 'MarcWeber/vim-addon-mw-utils'
+      " Plug 'tpope/vim-commentary'
+      " Plug 'tpope/vim-endwise'
       Plug 'tpope/vim-surround'
       Plug 'tpope/vim-fugitive'
-      Plug 'tpope/vim-repeat'
       Plug 'itchyny/lightline.vim'
       Plug 'jiangmiao/auto-pairs'
       Plug 'elzr/vim-json'
-      Plug 'junegunn/goyo.vim'
-      Plug 'rking/ag.vim'
+      " Plug 'rking/ag.vim'
       Plug 'pangloss/vim-javascript'
-      Plug 'tpope/vim-haml'
-      Plug 'tpope/vim-cucumber'
+      " Plug 'tpope/vim-haml'
+      " Plug 'tpope/vim-cucumber'
       Plug 'majutsushi/tagbar'
       Plug 'vim-scripts/matchit.zip'
       Plug 'terryma/vim-expand-region'
-      Plug 'nathanaelkane/vim-indent-guides'
-      Plug 'kana/vim-textobj-user'
-      Plug 'austintaylor/vim-indentobject'
-      Plug 'lucapette/vim-textobj-underscore'
-      Plug 'tpope/vim-dispatch'
-      Plug 'wting/rust.vim'
+      " Plug 'nathanaelkane/vim-indent-guides'
+      " Plug 'kana/vim-textobj-user'
+      " Plug 'austintaylor/vim-indentobject'
+      " Plug 'lucapette/vim-textobj-underscore'
+      " Plug 'tpope/vim-dispatch'
       Plug 'mxw/vim-jsx'
-      Plug 'tomtom/tlib_vim'
+      " Plug 'tomtom/tlib_vim'
       Plug 'SirVer/ultisnips'
       Plug 'honza/vim-snippets'
-      Plug 'kien/ctrlp.vim'
-      Plug 'AndrewRadev/splitjoin.vim'
-      Plug 'nikvdp/ejs-syntax'
-      Plug 'godlygeek/tabular'
-      Plug 'plasticboy/vim-markdown'
-      Plug 'lfilho/cosco.vim'
+      " Plug 'kien/ctrlp.vim'
+      " Plug 'AndrewRadev/splitjoin.vim'
+      " Plug 'nikvdp/ejs-syntax'
+      " Plug 'godlygeek/tabular'
+      Plug 'tpope/vim-repeat'
+      Plug 'lfilho/cosco.vim' " Auto append semicolon or Comma
       Plug 'dracula/vim'
       Plug 'leafgarland/typescript-vim'
       Plug 'ianks/vim-tsx'
       Plug 'posva/vim-vue'
-      Plug 'epilande/vim-react-snippets'
+      " Plug 'epilande/vim-react-snippets'
       Plug 'Galooshi/vim-import-js'
-      Plug 'chemzqm/wxapp.vim'
+      " Plug 'chemzqm/wxapp.vim'
       Plug 'prettier/vim-prettier'
       Plug 'janko/vim-test'
       Plug 'jhkersul/vim-jest-snippets'
       Plug 'mg979/vim-visual-multi'
-      Plug 'Shougo/deoplete.nvim'
+      " Plug 'Shougo/deoplete.nvim'
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
       Plug 'neoclide/coc.nvim', {'branch': 'release'}
+      Plug 'briancollins/vim-jst'
+      Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
+      Plug 'justinmk/vim-sneak'
+      Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+      Plug 'luchermitte/vim-refactor'
+      Plug 'ryanoasis/vim-devicons'
+      Plug 'seabornlee/terminal.vim'
 
       call plug#end()            " required
   " }}}
@@ -138,7 +144,7 @@
       set wrap " wrap lines, we dont want long lines
       set showbreak=↪ " character show when wrapping line
 
-      " set foldenable " folding text into clusters (+) according to  {{{ }}} or comments for example.
+      set foldenable " folding text into clusters (+) according to  {{{ }}} or comments for example.
       " set foldmethod=manual " default options, we create fold manually.
       set fdm=indent
       set showmatch " when use insert bracket, briefly jump to matching one (i like it, but i might be annoying)
@@ -163,11 +169,6 @@
       " :hi CursorLine   cterm=NONE ctermbg=8
       :hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
       set cursorline
-
-      "improve autocomplete menu color
-      highlight Pmenu ctermbg=238
-      " }}}
-      "
 
       " Removes trailing spaces
       function! TrimWhiteSpace()
@@ -207,7 +208,7 @@
       nnoremap <Leader>qq :q!<CR>
 
       " Quickly edit/reload the vimrc file
-      nmap <silent> <leader>ev :e $MYVIMRC<CR>
+      nmap <silent> <leader>ev :vsplit $MYVIMRC<CR>
       nmap <silent> <leader>so :so $MYVIMRC<CR>
 
       " convenient window switching
@@ -218,6 +219,9 @@
 
       " jump to end of line in insert mode
       inoremap <C-e> <C-o>$
+      "inoremap <leader>; <C-o>A;<CR>
+      autocmd FileType javascript,css,php nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+      autocmd FileType javascript,css,php imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon)
 
       " open horizontal  split and switch to it
       nnoremap <leader>h :split<CR>
@@ -247,9 +251,6 @@
       map <Down> gj
       map <Up> gk
 
-      " expand region
-      vmap v <Plug>(expand_region_expand)
-      "vmap <C-v> <Plug>(expand_region_shrink)
    " }}}
 
     " Filetypes
@@ -299,7 +300,6 @@
       augroup END
       " }}}
 
-      inoremap <leader>; <C-o>A;
 
 
     " }}}
@@ -346,40 +346,75 @@
 
       " syntastic {{{
       nnoremap <C-E> :SyntasticCheck<CR>
-      let g:syntastic_auto_loc_list=1
-      let g:syntastic_enable_signs=1
-      let g:synastic_quiet_warnings=1
+      let g:syntastic_auto_loc_list=0
+      let g:syntastic_enable_signs=0
+      let g:synastic_quiet_warnings=0
 
       " }}}
 
-      " syntastic {{{
+      " vim-test {{{
       let test#strategy = "vimterminal"
-      nnoremap <leader>t :TestNearest<CR>
-      nnoremap <leader>f :TestFile<CR>
-      nnoremap <leader>l :TestLast<CR>
+      "nnoremap <leader>t :wa<CR>:TestNearest<CR>
+      nnoremap <leader>t :call SaveModifiedFiles()<cr>:TestNearest<CR>
+      nnoremap <leader>tf :call SaveModifiedFiles()<CR>:TestFile<CR>
+      nnoremap <leader>s :call SaveModifiedFiles()<CR>:TestSuite<CR>
+      nnoremap <leader>l :call SaveModifiedFiles()<CR>:TestLast<CR>
       " }}}
+
+      function! SaveModifiedFiles() abort
+          for buf in getbufinfo({'bufloaded': 1})
+              if buf.changed
+                  :write
+              endif
+          endfor
+      endfunction
+
+
+      if has('nvim')
+        augroup TermGG
+          autocmd!
+          " 打开终端进入 insert 模式
+          autocmd TermOpen * startinsert
+          " 不滚动
+          autocmd TermOpen *[tT]est{.ts,.php,.js} call feedkeys("\<C-\>\<C-n>gg", 'n') | nmap <buffer> <cr> i<cr> | nmap <buffer> <ESC> :silent! bd!<CR>
+          " 执行完跳到开头
+          " autocmd TermClose *[tT]est{.ts,.php,.js} call feedkeys("\<C-\>\<C-n>gg", 'n') | nmap <buffer> <cr> i<cr> | nmap <buffer> <ESC> :silent! bd!<CR>
+        augroup END
+      else
+        function TermGg(...) abort
+          nmap <buffer> <cr> :silent! bd!<CR> | nmap <buffer> <ESC> :silent! bd!<CR>
+          normal gg
+        endfunction
+
+        function! TermStrategy(cmd)
+          tabnew
+          call term_start(a:cmd, {"exit_cb": {->timer_start(100, function('TermGg'))}, "curwin": v:true })
+        endfunction
+
+        let g:test#custom_strategies = {'termOpen': function('TermStrategy')}
+        let g:test#strategy = 'termOpen'
+      endif
 
       " Rubycomplete {{{
-      let g:rubycomplete_rails=1
-      let g:rubycomplete_classes_in_global=1
-      let g:rubycomplete_buffer_loading=1
-      let g:rubycomplete_include_object=1
-      let g:rubycomplete_include_objectspace=1
+      " let g:rubycomplete_rails=1
+      " let g:rubycomplete_classes_in_global=1
+      " let g:rubycomplete_buffer_loading=1
+      " let g:rubycomplete_include_object=1
+      " let g:rubycomplete_include_objectspace=1
       " }}}
 
       " NERDTree {{{
       nnoremap <leader><TAB> :NERDTreeToggle<CR>
-      nmap <leader>1 :NERDTreeFind<CR>
+      nmap <leader>` :NERDTreeFind<CR>
       let g:NERDTreeMinimalUI=1
       let g:NERDTreeDirArrows=1
       let g:NERTreeHighlightCursorLine=1
+      let g:nerdtree_tabs_open_on_gui_startup=0
       "}}}
+      "
 
-      " CtrlP {{{
-      nmap <leader>bs :CtrlPMRU<cr>
-      nmap <leader>bb :CtrlPBuffer<cr>
-      let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|dist)$'
-      "}}
+      " NERD commentor
+      let g:NERDSpaceDelims = 1
 
       " ag {{{
       let g:ag_prg="ag --column"
@@ -389,7 +424,7 @@
 
       nmap <Leader>ta :TagbarToggle<CR>
 
-      let g:UltiSnipsExpandTrigger="<tab>"
+      " let g:UltiSnipsExpandTrigger="<tab>"
       let g:UltiSnipsJumpForwardTrigger="<tab>"
       let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
@@ -403,7 +438,12 @@
 
       " let g:ale_sign_error = '❎'
       " let g:ale_sign_warning = '⚠️'
-      " let g:ale_fix_on_save = 1
+
+      let g:ale_fix_on_save = 1
+      let g:ale_fixers = {
+      \   'javascript': ['prettier', 'eslint'],
+      \   'typescript': ['prettier', 'eslint'],
+      \}      
 
       au BufNewFile,BufRead Jenkinsfile setf groovy
 
@@ -427,31 +467,6 @@
       " Always show the signcolumn, otherwise it would shift the text each time
       " diagnostics appear/become resolved.
       set signcolumn=yes
-
-      " Use tab for trigger completion with characters ahead and navigate.
-      " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-      " other plugin before putting this into your config.
-      inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-      inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-      function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-      endfunction
-
-      " Use <c-space> to trigger completion.
-      inoremap <silent><expr> <c-space> coc#refresh()
-
-      " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-      " position. Coc only does snippet and additional edit on confirm.
-      if exists('*complete_info')
-        inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-      else
-        imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-      endif
 
       " Use `[g` and `]g` to navigate diagnostics
       nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -527,7 +542,7 @@
       " Add (Neo)Vim's native statusline support.
       " NOTE: Please see `:h coc-status` for integrations with external plugins that
       " provide custom statusline: lightline.vim, vim-airline.
-      set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+      "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
       " Mappings using CoCList:
       " Show all diagnostics.
@@ -546,21 +561,126 @@
       nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
       " Resume latest coc list.
       nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+      " Phpactor
+      " Include use statement
+      nmap <Space>pu :call phpactor#UseAdd()<CR>
+
+      let g:phpactorInputListStrategy = 'phpactor#input#list#fzf'
+      let g:phpactorQuickfixStrategy = 'phpactor#quickfix#fzf'
+
+      " Invoke the context menu
+      nmap <Leader>r :call phpactor#ContextMenu()<CR>
+
+      " Invoke the navigation menu
+      nmap <>b :call phpactor#Navigate()<CR>
+
+      " Goto definition of class or class member under the cursor
+      nmap <Space>pgd :call phpactor#GotoDefinition()<CR>
+      nmap <Space>pgdh :call phpactor#GotoDefinitionHsplit()<CR>
+      nmap <Space>pgdv :call phpactor#GotoDefinitionVsplit()<CR>
+      nmap <Space>pgdt :call phpactor#GotoDefinitionTab()<CR>
+
+      " Show brief information about the symbol under the cursor
+      nmap <Space>pK :call phpactor#Hover()<CR>
+
+      " Transform the classes in the current file
+      nmap <Space>pt :call phpactor#Transform()<CR>
+
+      " Import all missing classes in the current file
+      "nmap <Space>pim :call phpactor#ImportMissingClasses()<CR>
+
+      " Expand the class name from unqualified name to fully qualified name
+      nmap <Space>pec :call phpactor#ClassExpand()<CR>
+
+      " Class Move
+      nmap <Space>pmf :call phpactor#MoveFile()<CR>
+
+      " Generate a new class (replacing the current file)
+      nmap <leader>c :call phpactor#ClassNew()<CR>
+
+      " Extract expression (normal mode)
+      nmap <silent><leader>v :call phpactor#ExtractExpression(v:false)<CR>
+
+      " Extract expression from selection
+      vmap <silent><leader>vv :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+
+      " Extract method from selection
+      vmap <silent><leader>m :<C-U>call phpactor#ExtractMethod()<CR>
+
+      " Copy an existing class to another location updating its name and namespace 
+      nmap <Space>pcf :call phpactor#CopyFile()<CR>
+
+      " Change visibility
+      nmap <Space>pcv :call phpactor#ChangeVisibility()<CR>
+
+      "Generate accessor
+      nmap <Space>pga :call phpactor#GenerateAccessor()<CR>
+
+      " LeaderF
+      let g:Lf_WindowPosition = 'popup'
+      let g:Lf_PreviewInPopup = 1
+      let g:Lf_ShowDevIcons = 1
+      let g:Lf_DevIconsFont = "DroidSansMono Nerd Font Mono"
+      let g:Lf_ShortcutF = '<C-P>'
+
+      map <C-c> <Plug>(expand_region_expand)
+      map <C-t> <Plug>(expand_region_shrink)
+
+      let g:prettier#autoformat = 1
+      autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.php PrettierAsync
+
+      nmap <Leader>tt :terminal<CR>
+
+      " => Lightline --------------------------------
+      let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'window', 'filename', 'modified'] ]
+            \ },
+            \ 'inactive': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'window'] ]
+            \ },
+            \ 'component_function': {
+            \   'window': 'WindowNum'
+            \ },
+            \ }
+
+      function! WindowNum()
+          return winnr()
+      endfunction
+
+      nmap <silent><leader>1 :1wincmd w<CR>
+      nmap <silent><leader>2 :2wincmd w<CR>
+      nmap <silent><leader>3 :3wincmd w<CR>
+      nmap <silent><leader>4 :4wincmd w<CR>
+
+      tnoremap <Esc> <C-\><C-n>
+
+
     " GUI setting
     " {{{
     " Under the Mac(MacVim)
     if has("gui_macvim")
       set macligatures
-      set guifont=Fira\ Code:h28
-      " set guifont=Menlo\ Regular:h18
+      "set guifont=Fira\ Code:h24
+      set guifont=DroidSansMono\ Nerd\ Font:h28
       "remove toolbar
       set guioptions-=T
       set showtabline=1
       " remove scrollbars
       set guioptions-=L
       set guioptions-=r
+      set guioptions+=c
 
-      " set fullscreen fullscreen
+      set fullscreen fullscreen
+    endif
+
+    if has("nvim")
+      set guifont=DroidSansMono\ Nerd\ Font:h28
+      let g:Lf_ShowDevIcons = 0
     endif
     " }}}
 " }}}
